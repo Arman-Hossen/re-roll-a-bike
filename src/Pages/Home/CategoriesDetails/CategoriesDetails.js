@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CatagoryDetailsCard from './CatagoryDetailsCard';
 
 const CategoriesDetails = () => {
     const params = useParams();
@@ -16,9 +17,11 @@ const CategoriesDetails = () => {
     return (
         <div>
             <h2>This is catagory details:{category.length} </h2>
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 m-6 ">
             {
-                category.map(cat => cat.title)
+                category.map(cat =><CatagoryDetailsCard key={cat._id} cat={cat}></CatagoryDetailsCard> )
             }
+            </div>
           
             
         </div>
