@@ -1,8 +1,8 @@
 import React from "react";
 import { GoVerified } from 'react-icons/go';
 
-const CatagoryDetailsCard = ({ cat }) => {
-  const { title, model,img, verified,location,resale_price,original_price,year_used,registered,seler_name } = cat;
+const CatagoryDetailsCard = ({ cat, setbikeModel }) => {
+  const {  model,img, verified,location,resale_price,original_price,year_used,registered,seler_name } = cat;
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -27,11 +27,12 @@ const CatagoryDetailsCard = ({ cat }) => {
         <p>Origal Price: ${original_price}</p>
         <p>Range of Used: {year_used} Months </p>
         <p>Post On: {registered.slice(0,10)}</p>
-        <p>Seler: {seler_name}</p>
+        <p>Saler: {seler_name}</p>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+        <label htmlFor="booking-bike" onClick={()=>setbikeModel(cat)}>
+         Book Now
+        </label>
         </div>
       </div>
     </div>
