@@ -4,6 +4,8 @@ import MainLook from "../../layout/MainLook";
 import Error from "../../Pages/Error/Error";
 import CategoriesDetails from "../../Pages/Home/CategoriesDetails/CategoriesDetails";
 import Home from "../../Pages/Home/Home/Home";
+import LogIn from "../../Pages/LogIn/LogIn";
+import SignUp from "../../Pages/SignUp/SignUp";
 
 
 const router = createBrowserRouter([
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
             path:'/category/:id',
             element: <CategoriesDetails></CategoriesDetails>,
            
+        },
+        {
+            path:'/login',
+            element:<LogIn></LogIn>
+        },
+        {
+            path:'/signup',
+            element:<SignUp></SignUp>
         },
     ]
 
