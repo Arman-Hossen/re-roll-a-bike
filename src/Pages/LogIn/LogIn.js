@@ -23,11 +23,13 @@ const LogIn = () => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, {replace: true})
+                
             })
             .catch(error => {
                 console.log(error)
                 setLoginError(error.message);
             });
+
     }
     const handleGoogle = () =>{
       googleLogin(googleProvider)
@@ -97,7 +99,7 @@ const LogIn = () => {
                 {errors.password && <p className="text-red-600 font-semibold">{errors.password?.message}</p>}
             </div>
 
-            <div className="form-control w-full max-w-xs mt-3 bordered">
+            {/* <div className="form-control w-full max-w-xs mt-3 bordered">
             <select className="bordered" {...register("userType", { required: "Selected UserType" })}>
                 <option value="">Select User Type</option>
                 <option value="Buyer">Buyer</option>
@@ -105,7 +107,7 @@ const LogIn = () => {
             </select>
             {errors.userType && <p className="text-red-600 font-semibold">{errors.userType?.message}</p>}
             
-            </div>
+            </div> */}
           <input className="btn btn-primary w-full mt-5" value="Login" type="submit" />
           <div>
             {loginError && <p className="text-red-600">{loginError}</p>}

@@ -5,13 +5,14 @@ import { AuthContext } from '../../../../Context/AuthProvider';
 
 const BookingModal = ({bikeModel, setbikeModel}) => {
     const { user } = useContext(AuthContext);
-    const { model,resale_price} = bikeModel;
+    const { model,resale_price,img} = bikeModel;
     
     const handleBooking = (event) =>{
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const model = form.model.value;
+        const img = form.img.value;
         const resale_price = form.price.value;
         const phone = form.phone.value;
         const location = form.location.value;
@@ -20,6 +21,7 @@ const BookingModal = ({bikeModel, setbikeModel}) => {
             name,
             email,
             model,
+            img,
             resale_price,
             phone,
             location,
@@ -56,6 +58,7 @@ const BookingModal = ({bikeModel, setbikeModel}) => {
                     <input name='name' type="text" value={user?.displayName} className="input w-full input-bordered" readOnly />
                     <input name='email' type="email" value={user?.email} className="input w-full input-bordered" readOnly />
                     <input name='model' type="text" value={model} className="input w-full input-bordered" readOnly/>
+                    <input name='img' type="text" value={img} className="input w-full input-bordered" readOnly/>
                     <input name='price' type="text" value={resale_price} className="input w-full input-bordered" readOnly />
                     <input name='phone' type="text" placeholder="Your Phone Number" className="input w-full input-bordered" />
                     <input name='location' type="text" placeholder="meeting location" className="input w-full input-bordered" />
