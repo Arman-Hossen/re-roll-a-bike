@@ -3,16 +3,23 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
     const {register, formState: {errors}, handleSubmit} = useForm();
     const {createUser,updateUser} = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
+    if(token){
+        navigate('/')
+    }
     
 
     const handleSignUp = (data) =>{
         setSignUpError('');
+
         
         createUser(data.email, data.password)
         .then(result => {
@@ -23,7 +30,7 @@ const SignUp = () => {
             }
             updateUser(userInfo)
             .then(() =>{
-                navigate('/');
+                // navigate('/');
             })
             .catch(err => console.log(err))
         })
@@ -50,6 +57,8 @@ const SignUp = () => {
         .then(data => {
             console.log(data);
             if(data.acknowledged){
+
+                setCreatedUserEmail(email);
                 
                 toast.success("SignUp successfuly");
             }
@@ -77,7 +86,7 @@ const SignUp = () => {
                 <input type="password" {...register("password",{
                     required: "Password is required",
                     minLength:{value: 6, message: 'Password must be 6 charecter or more'},
-                    pattern: {value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: "password must be strong"}
+                    pattern: {value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: "password must be one Upper case and special charachter and one number"}
                 })} className="input input-bordered w-full max-w-xs"/>
                 {errors.password && <p className="text-red-600 font-semibold">{errors.password?.message}</p>}
             </div>
