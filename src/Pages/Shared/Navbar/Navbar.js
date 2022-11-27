@@ -1,10 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/favicon.ico'
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+//   const {email} = user;
+
+  const [login, setLogin] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/roll/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setLogin(data));
+  }, [user?.email]);
+
+  console.log(login?.role);
+
+// if(user?.email){
+//     const {email} = user;
+
+
+// }
 
     const handleLogOut = () => {
         logOut()
@@ -25,13 +41,14 @@ const Navbar = () => {
             {/* <li className="font-semibold">
                 <Link to="/login">Login</Link>
             </li> */}
+           
 
             {user?.email ? (
                 <>
-                    {/* <li className="font-semibold">
-                        <Link to="/myreviews">My Reviews</Link>
-                    </li>
                     <li className="font-semibold">
+                        <Link to="/myreviews">DashBoard</Link>
+                    </li>
+                    {/* <li className="font-semibold">
                         <Link to="/addservice">Add Service</Link>
                     </li> */}
                     <li className="font-semibold">
@@ -46,6 +63,7 @@ const Navbar = () => {
                 </li>
             )}
         </>
+       
     );
     return (
       <div className="navbar h-20 bg-base-100">
