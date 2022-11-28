@@ -17,8 +17,12 @@ const DashboardLayout = () => {
     <label htmlFor="bike-drawer" className="drawer-overlay"></label> 
     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
       
-      <li><Link>Sidebar Item 1</Link></li>
-      <li><Link>Sidebar Item 2</Link></li>
+      <li><Link>Booked Bike</Link></li>
+      <li><Link>Add Product</Link></li>
+      <li><Link>All Seler</Link></li>
+      <li><Link>All Buyers</Link></li>
+      <li><Link>My Orders</Link></li>
+
     </ul>
   
   </div>

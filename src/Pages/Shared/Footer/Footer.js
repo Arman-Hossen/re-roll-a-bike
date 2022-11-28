@@ -8,11 +8,11 @@ const Footer = () => {
            <footer className="footer footer-center p-10 ">
             <div>
                 <img className="h-32 w-32 rounded-full" src={logo} alt="" />
-                <h1 className='text-center'> Arman's Kitchen</h1>
+                <h1 className='text-center'> REROllABIKE</h1>
                 <p className="font-bold">
-                Eating good food is my favourite thing <br /> in the whole world. Nothing is more blissful.
+                Yesterday is history, tomorrow is a mystery; <br /> Ride and live today
                 </p>
-                <p>Copyright © 2022 - All right reserved - Armans Kitchen</p>
+                <p>Copyright © 2022 - All right reserved - REROllABIKE</p>
             </div>
             <div>
                 <div className="grid grid-flow-col gap-4">
