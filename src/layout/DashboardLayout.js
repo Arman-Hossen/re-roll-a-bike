@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
+import useAdmin from '../hooks/UseAdmin';
+
+
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashboardLayout = () => {
+
+    const {user} = useContext(AuthContext);
+    const [admin , adminLoading] = useAdmin(user?.email)
+    console.log(admin);
+    
     return (
         <div>
             <Navbar></Navbar>
@@ -16,13 +25,26 @@ const DashboardLayout = () => {
   <div className="drawer-side">
     <label htmlFor="bike-drawer" className="drawer-overlay"></label> 
     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-      
-      <li><Link>Booked Bike</Link></li>
-      <li><Link>Add Product</Link></li>
-      <li><Link>All Seler</Link></li>
-      <li><Link>All Buyers</Link></li>
-      <li><Link>My Orders</Link></li>
 
+
+            <li><Link to='/dashboard'>Booked Bike</Link></li>        
+
+            {
+        admin && <>
+        <li><Link to='/dashboard/addproduct'>Add Product</Link></li>
+            <li><Link to='/dashboard/alluser'>All User</Link></li>
+            <li><Link to='/dashboard/allseler' >All Seler</Link></li>
+            <li><Link to='/dashboard/allbuyer'>All Buyers</Link></li>
+            <li><Link to='/dashboard/myorders'>My Orders</Link></li>
+        </>
+      }
+            
+            {/* <li><Link to='/dashboard/addproduct'>Add Product</Link></li>
+            <li><Link to='/dashboard/alluser'>All User</Link></li>
+            <li><Link to='/dashboard/allseler' >All Seler</Link></li>
+            <li><Link to='/dashboard/allbuyer'>All Buyers</Link></li>
+            <li><Link to='/dashboard/myorders'>My Orders</Link></li> */}
+    
     </ul>
   
   </div>
