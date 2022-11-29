@@ -6,6 +6,7 @@ const AllCatagory = ({ catagory }) => {
 
   return (
     <Link to={`/category/${_id}`}>
+      {/* <Link to={`/category/${title}`}> */}
       <div className="card  bg-base-50 shadow-xl image-full">
         <figure>
           <img  src={img}  alt="" />

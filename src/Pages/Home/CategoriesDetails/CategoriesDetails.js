@@ -7,7 +7,7 @@ const CategoriesDetails = () => {
     const params = useParams();
        
        const id = params.id;
-    //    console.log(id);
+       console.log(params);
       
 
        const [category, setCategory] = useState([]);
