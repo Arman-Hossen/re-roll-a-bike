@@ -9,6 +9,7 @@ import AllSeler from "../../Pages/DashBoard/AllSeler/AllSeler";
 import AllUser from "../../Pages/DashBoard/AllUser/AllUser";
 import BikeBooked from "../../Pages/DashBoard/BikeBooked/BikeBooked";
 import MyOrders from "../../Pages/DashBoard/MyOrders/MyOrders";
+import MyProducts from "../../Pages/DashBoard/MyProducts/MyProducts";
 import Payment from "../../Pages/DashBoard/Payment/Payment";
 import Error from "../../Pages/Error/Error";
 import CategoriesDetails from "../../Pages/Home/CategoriesDetails/CategoriesDetails";
@@ -79,6 +80,11 @@ const router = createBrowserRouter([
             path:'/dashboard/alluser',
             element:<AdminRoute><AllUser></AllUser></AdminRoute>
         },
+        {
+            path:'/dashboard/myproducts',
+            element:<SellerRoute><MyProducts></MyProducts></SellerRoute>
+        },
+        
         {
             path:'/dashboard/payment/:id',
             element:<Payment></Payment>,
