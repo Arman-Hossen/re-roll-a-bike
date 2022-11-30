@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const MyProducts = () => {
@@ -12,6 +13,27 @@ const MyProducts = () => {
             return data;
         }
     });
+
+    const handleStatusUpdate = id => {
+
+        console.log(id);
+        fetch(`http://localhost:5000/advertiseupdate/${id}`, {
+            method: 'PATCH', 
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({advertise: 'true'})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0) {
+                toast.success("Successfully Adertise");
+                refetch();
+                
+            }
+        })
+    }
     return (
         <div>
         <h2>This is All user</h2>
@@ -34,12 +56,14 @@ const MyProducts = () => {
             <th>{index+1}</th>
             <td>{users.seler_name}</td>
             <td>{users.email}</td>
-            <td>{users.isSoled ?
+            <td>{users?.isSoled!=='false' ?
              <>Sold</>:
              <>Unsold</>}</td>
 
             
-            <td>{ user.advertise ? <></>:<><button  className='btn btn-xs btn-primary'>Advertise</button></> }</td>
+            <td>{ users?.advertise!== 'false' ?
+             <>Already advertise</> :
+             <><button className='btn btn-xs btn-primary' onClick={() => handleStatusUpdate(users._id)}>Advertise</button></> }</td>
             <td><button className='btn btn-xs text-red-400'>Delete</button></td>
           </tr>)
     }

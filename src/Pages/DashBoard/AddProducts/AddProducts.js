@@ -25,10 +25,10 @@ const AddProducts = () => {
         const img = data.photo;
         const condition = data.condition;
         const description = data.description;
-        const verified = false;
-        const report = false;
-        const advertise = false;
-        const isSoled = false;
+        const verified = 'false';
+        const report = 'false';
+        const advertise = 'false';
+        const isSoled = 'false';
         const dateobj = new Date();
         const registered = dateobj.toISOString();
         const addProduct = {
@@ -81,13 +81,13 @@ const AddProducts = () => {
         <div className="form-control w-full max-w-xs mt-3 bordered">
         <div className="form-control w-full max-w-xs">
                 <label className="label"><span className="label-text">Email</span></label>
-                <input defaultValue={user.email} type="email" {...register("email",{
+                <input readOnly defaultValue={user.email} type="email" {...register("email",{
                     required: true
                 })} className="input input-bordered w-full max-w-xs"/>
             </div>
             <div className="form-control w-full max-w-xs">
                 <label className="label"><span className="label-text">User Name</span></label>
-                <input defaultValue={user.displayName}  type="text" {...register("name",{
+                <input readOnly defaultValue={user.displayName}  type="text" {...register("name",{
                     required: true
                 })} className="input input-bordered w-full max-w-xs"/>
             </div>
@@ -125,10 +125,10 @@ const AddProducts = () => {
             </div>
             <div className="form-control w-full max-w-xs">
                 <label className="label"><span className="label-text">Photo</span></label>
-                <input required type="file" {...register("photo")} className="input input-bordered w-full max-w-xs"/>
+                <input required type="text" {...register("photo")} className="input input-bordered w-full max-w-xs"/>
             </div>
+            
           
-         
 
             <div className="form-control w-full max-w-xs mt-3 bordered">
             <label className="label"><span className="label-text">condition type</span></label>
