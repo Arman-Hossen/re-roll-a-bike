@@ -13,7 +13,7 @@ const CategoriesDetails = () => {
        const [category, setCategory] = useState([]);
        const [bikeModel, setbikeModel] = useState(null);
          useEffect(() => {
-        fetch(`http://localhost:5000/category?service_id=${id}`)
+        fetch(`http://localhost:5000/category?title=${id}`)
         .then((res) => res.json())
         .then((data) => setCategory(data));
         }, [id]);
