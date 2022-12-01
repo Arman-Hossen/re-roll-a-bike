@@ -6,6 +6,7 @@ import { AuthContext } from '../../../Context/AuthProvider';
 
 const BikeBooked = () => {
     const {user} = useContext(AuthContext);
+    console.log(user.email);
     const url = `http://localhost:5000/bookingbike?email=${user?.email}`;
     const {data:bookingbike=[]} = useQuery({
         queryKey:['bookingbike', user?.email],

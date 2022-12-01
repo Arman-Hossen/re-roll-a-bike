@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BookingModal from '../Catagory/BookingModal/BookingModal';
@@ -10,20 +11,31 @@ const CategoriesDetails = () => {
        console.log(params);
       
 
-       const [category, setCategory] = useState([]);
+    //    const [category, setCategory] = useState([]);
        const [bikeModel, setbikeModel] = useState(null);
-         useEffect(() => {
-        fetch(`http://localhost:5000/category?title=${id}`)
-        .then((res) => res.json())
-        .then((data) => setCategory(data));
-        }, [id]);
+        //  useEffect(() => {
+        // fetch(`http://localhost:5000/category?title=${id}`)
+        // .then((res) => res.json())
+        // .then((data) => setCategory(data));
+        // }, [id]);
+
+        const {data: category = [], refetch} = useQuery({
+            queryKey: ['allrole',id],
+            queryFn: async() =>{
+                const res = await fetch(`http://localhost:5000/category?title=${id}`);
+                const data = await res.json();
+                return data;
+            }
+        });   
+
+       
         
     return (
         <div>
             <h2>This is catagory details:{category.length} </h2>
             <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 m-6 ">
             {
-                category.map(cat =><CatagoryDetailsCard key={cat._id} setbikeModel={setbikeModel} cat={cat}></CatagoryDetailsCard> )
+                category.map(cat =><CatagoryDetailsCard key={cat._id} setbikeModel={setbikeModel} refetch={refetch} cat={cat} ></CatagoryDetailsCard> )
             }
 
             </div>

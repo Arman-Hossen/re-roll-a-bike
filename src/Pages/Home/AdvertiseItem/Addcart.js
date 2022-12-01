@@ -11,13 +11,7 @@ const Addcart = ({catagory}) => {
       <div className="card-body">
         <h2 className="card-title">
           {model}
-          {
-            verified!=='false'?
-            <>
-            <div className="badge badge-secondary"><GoVerified className="text-white" /></div>
-            </>:<></>
-
-          }
+          
           
         </h2>
         
@@ -25,7 +19,14 @@ const Addcart = ({catagory}) => {
         <p>Origal Price: ${original_price}</p>
         <p>Range of Used: {year_used} Year </p>
         <p>Post On: {registered.slice(0,10)}</p>
-        <p>Saler: {seler_name}</p>
+        <p>Saler: {seler_name}
+        {
+            verified!=='false'?
+            <>
+            <div className="badge badge-secondary"><GoVerified className="text-white" /></div>
+            </>:<></>
+
+          }</p>
         <div className="card-actions justify-end">
         
         </div>

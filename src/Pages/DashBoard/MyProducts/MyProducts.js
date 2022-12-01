@@ -34,6 +34,23 @@ const MyProducts = () => {
             }
         })
     }
+    const handleDelete = id =>{
+        const proceed = window.confirm('Are you sure, you want to cancel this Products');
+        if(proceed){
+            fetch(`http://localhost:5000/deleteproduct/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0){
+                   
+                    toast.success("Successfully Adertise");
+                    refetch();
+                }
+            })
+        }
+    }
     return (
         <div>
         <h2>This is All user</h2>
@@ -64,7 +81,7 @@ const MyProducts = () => {
             <td>{ users?.advertise!== 'false' ?
              <>Already advertise</> :
              <><button className='btn btn-xs btn-primary' onClick={() => handleStatusUpdate(users._id)}>Advertise</button></> }</td>
-            <td><button className='btn btn-xs text-red-400'>Delete</button></td>
+            <td><button className='btn btn-xs text-red-400' onClick={() => handleDelete(users._id)}>Delete</button></td>
           </tr>)
     }
 </tbody>

@@ -11,6 +11,7 @@ import BikeBooked from "../../Pages/DashBoard/BikeBooked/BikeBooked";
 import MyOrders from "../../Pages/DashBoard/MyOrders/MyOrders";
 import MyProducts from "../../Pages/DashBoard/MyProducts/MyProducts";
 import Payment from "../../Pages/DashBoard/Payment/Payment";
+import ReportedItem from "../../Pages/DashBoard/ReportedItem/ReportedItem";
 import Error from "../../Pages/Error/Error";
 import CategoriesDetails from "../../Pages/Home/CategoriesDetails/CategoriesDetails";
 import Home from "../../Pages/Home/Home/Home";
@@ -84,6 +85,11 @@ const router = createBrowserRouter([
             path:'/dashboard/myproducts',
             element:<SellerRoute><MyProducts></MyProducts></SellerRoute>
         },
+        {
+            path:'/dashboard/reportuser',
+            element:<AdminRoute><ReportedItem></ReportedItem></AdminRoute>
+        },
+       
         
         {
             path:'/dashboard/payment/:id',

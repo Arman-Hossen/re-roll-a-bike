@@ -13,21 +13,21 @@ const AllUser = () => {
         }
     });
 
-    const handleMakeAdmin = id =>{
-        fetch (`http://localhost:5000/allrole/admin/${id}`,{
-            method: 'PUT',
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-        .then(res => res.json())
-        .then(data =>{
-            if(data.modifiedCount> 0) {
-                toast.success('make admin successfully')
-                refetch();
-            }
-        })
-    }
+    // const handleMakeAdmin = id =>{
+    //     fetch (`http://localhost:5000/allrole/admin/${id}`,{
+    //         method: 'PUT',
+    //         headers: {
+    //             authorization: `bearer ${localStorage.getItem('accessToken')}`
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(data =>{
+    //         if(data.modifiedCount> 0) {
+    //             toast.success('make admin successfully')
+    //             refetch();
+    //         }
+    //     })
+    // }
 
     return (
         <div>
@@ -41,7 +41,7 @@ const AllUser = () => {
         <th>Name</th>
         <th>Email</th>
         <th>UserType</th>
-        <th>Admin</th>
+        
         <th>Delete</th>
       </tr>
     </thead>
@@ -54,7 +54,7 @@ const AllUser = () => {
                 <td>{users.role}</td>
 
                 
-                <td>{ users?.role!== 'admin' && <button onClick={() => handleMakeAdmin(users._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
+                {/* <td>{ users?.role!== 'admin' && <button onClick={() => handleMakeAdmin(users._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td> */}
                 <td><button className='btn btn-xs text-red-400'>Delete</button></td>
               </tr>)
         }

@@ -42,6 +42,7 @@ const LogIn = () => {
 
     }
     const handleGoogle = () =>{
+      
       googleLogin(googleProvider)
       .then(result => {
         const user = result.user;
@@ -74,6 +75,7 @@ const LogIn = () => {
             
            
         }
+        
         
       
       });
