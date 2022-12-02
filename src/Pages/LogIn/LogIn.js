@@ -104,7 +104,7 @@ const LogIn = () => {
                 required: "Password is required",
                 minLength: {
                   value: 6,
-                  message: "Password must be 6 charecter or more",
+                  message: "Password must be 6 charecter or moreand atleast one Upper case and special charachter and one number",
                 },
               })}
               className="input input-bordered w-full max-w-xs"
@@ -119,15 +119,7 @@ const LogIn = () => {
             )}
           </div>
 
-          {/* <div className="form-control w-full max-w-xs mt-3 bordered">
-            <select className="bordered" {...register("userType", { required: "Selected UserType" })}>
-                <option value="">Select User Type</option>
-                <option value="Buyer">Buyer</option>
-                <option value="Seller">Seller</option>
-            </select>
-            {errors.userType && <p className="text-red-600 font-semibold">{errors.userType?.message}</p>}
-            
-            </div> */}
+          
           <input
             className="btn btn-primary w-full mt-5"
             value="Login"

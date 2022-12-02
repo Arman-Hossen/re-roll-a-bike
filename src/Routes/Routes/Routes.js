@@ -21,6 +21,7 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import SellerRoute from "../SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
+    
   {
     path: "/",
     element: <MainLook></MainLook>,
@@ -51,6 +52,7 @@ const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
     ],
+    
   },
   {
     path: "/dashboard",
@@ -60,6 +62,7 @@ const router = createBrowserRouter([
       </PrivateRoutes>
     ),
     children: [
+        
       {
         path: "/dashboard",
         element: <BikeBooked></BikeBooked>,
@@ -74,11 +77,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/allseler",
-        element: <AllSeler></AllSeler>,
+        element: <AdminRoute><AllSeler></AllSeler></AdminRoute>,
       },
       {
         path: "/dashboard/allbuyer",
-        element: <AllBuyer></AllBuyer>,
+        element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>,
       },
       {
         path: "/dashboard/myorders",

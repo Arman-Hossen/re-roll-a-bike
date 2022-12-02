@@ -106,6 +106,7 @@ const CheakoutForm = ({ booking }) => {
           if (data.insertedId) {
             setSuccess("Congrats! your payment completed");
             setTransactionId(paymentIntent.id);
+            toast.success("Payment Successful");
           }
         });
 

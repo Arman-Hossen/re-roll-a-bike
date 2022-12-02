@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider";
 
@@ -8,7 +9,7 @@ const BikeBooked = () => {
   const { user } = useContext(AuthContext);
   console.log(user.email);
   const url = `https://re-roll-abike-server.vercel.app/bookingbike?email=${user?.email}`;
-  const { data: bookingbike = [] } = useQuery({
+  const { data: bookingbike = [],refetch } = useQuery({
     queryKey: ["bookingbike", user?.email],
     queryFn: async () => {
       const res = await fetch(url, {
@@ -20,6 +21,26 @@ const BikeBooked = () => {
       return data;
     },
   });
+
+  const handleStatusUpdate = id => {
+
+      console.log(id);
+      fetch(`https://re-roll-abike-server.vercel.app/advertiseupdate/${id}`, {
+          method: 'PATCH',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify({advertise: 'false'})
+      })
+      .then(res => res.json())
+      .then(data => {
+          console.log(data);
+          if(data.modifiedCount > 0) {
+              refetch();
+
+          }
+      })
+  }
 
   // const [login, setLogin] = useState([]);
   // useEffect(() => {
@@ -59,7 +80,7 @@ const BikeBooked = () => {
                   <td>
                     {bike.resale_price && !bike.paid && (
                       <Link to={`/dashboard/payment/${bike._id}`}>
-                        <button className="btn btn-primary btn-sm">Pay</button>
+                        <button className="btn btn-primary btn-sm"onClick={() => handleStatusUpdate(bike._id)}>Pay</button>
                       </Link>
                     )}
                     {bike.resale_price && bike.paid && (

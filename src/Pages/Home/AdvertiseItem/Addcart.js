@@ -18,7 +18,7 @@ const Addcart = ({catagory}) => {
         <p>Resale Price: ${resale_price}</p>
         <p>Origal Price: ${original_price}</p>
         <p>Range of Used: {year_used} Year </p>
-        <p>Post On: {registered.slice(0,10)}</p>
+        <p>Post On: {registered?.slice(0,10)}</p>
         <p>Saler: {seler_name}
         {
             verified!=='false'?
