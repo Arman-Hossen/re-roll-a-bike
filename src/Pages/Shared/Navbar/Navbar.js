@@ -7,14 +7,14 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   //   const {email} = user;
 
-//   const [login, setLogin] = useState([]);
-//   useEffect(() => {
-//     fetch(`http://localhost:5000/roll/${user?.email}`)
-//       .then((res) => res.json())
-//       .then((data) => setLogin(data));
-//   }, [user?.email]);
+  //   const [login, setLogin] = useState([]);
+  //   useEffect(() => {
+  //     fetch(`https://re-roll-abike-server.vercel.app/roll/${user?.email}`)
+  //       .then((res) => res.json())
+  //       .then((data) => setLogin(data));
+  //   }, [user?.email]);
 
-//   console.log(login?.role);
+  //   console.log(login?.role);
 
   // if(user?.email){
   //     const {email} = user;
@@ -132,17 +132,14 @@ const Navbar = () => {
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
           <img src={logo} className="h-12 mr-3 rounded-3xl" alt="" />
-          
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
       <div className="navbar-end">
-                <span className="pr-4 text-fuchsia-500">
-                    {user?.displayName}
-                </span>
-            </div>
+        <span className="pr-4 text-fuchsia-500">{user?.displayName}</span>
+      </div>
       <label
         htmlFor="bike-drawer"
         tabIndex={2}

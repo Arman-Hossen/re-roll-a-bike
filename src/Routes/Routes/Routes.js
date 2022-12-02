@@ -1,4 +1,3 @@
-
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../layout/DashboardLayout";
 import MainLook from "../../layout/MainLook";
@@ -21,88 +20,104 @@ import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import SellerRoute from "../SellerRoute/SellerRoute";
 
-
 const router = createBrowserRouter([
-   {
-    path:'/',
-    element:<MainLook></MainLook>,
-    errorElement:<Error></Error>,
-    children:[
-        {
-            path:'/',
-            element:<Home></Home>,
-        },
-        {
-            path:'/category/:id',
-            element: <PrivateRoutes><CategoriesDetails></CategoriesDetails></PrivateRoutes>,
-           
-        },
-        {
-            path:'/login',
-            element:<LogIn></LogIn>
-        },
-        {
-            path:'/signup',
-            element:<SignUp></SignUp>
-        },
-        {
-            path:'/blog',
-            element:<Blog></Blog>
-        },
-    ]
+  {
+    path: "/",
+    element: <MainLook></MainLook>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/category/:id",
+        element: (
+          <PrivateRoutes>
+            <CategoriesDetails></CategoriesDetails>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/login",
+        element: <LogIn></LogIn>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoutes>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoutes>
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <BikeBooked></BikeBooked>,
+      },
+      {
+        path: "/dashboard/addproduct",
+        element: (
+          <SellerRoute>
+            <AddProducts></AddProducts>
+          </SellerRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allseler",
+        element: <AllSeler></AllSeler>,
+      },
+      {
+        path: "/dashboard/allbuyer",
+        element: <AllBuyer></AllBuyer>,
+      },
+      {
+        path: "/dashboard/myorders",
+        element: <MyOrders></MyOrders>,
+      },
+      {
+        path: "/dashboard/alluser",
+        element: (
+          <AdminRoute>
+            <AllUser></AllUser>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myproducts",
+        element: (
+          <SellerRoute>
+            <MyProducts></MyProducts>
+          </SellerRoute>
+        ),
+      },
+      {
+        path: "/dashboard/reportuser",
+        element: (
+          <AdminRoute>
+            <ReportedItem></ReportedItem>
+          </AdminRoute>
+        ),
+      },
 
-
-   },
-   {
-    path:'/dashboard',
-    element:<PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
-    children:[
-        {
-            path:'/dashboard',
-            element:<BikeBooked></BikeBooked>
-        },
-        {
-            path:'/dashboard/addproduct',
-            element:<SellerRoute><AddProducts></AddProducts></SellerRoute>
-        },
-        {
-            path:'/dashboard/allseler',
-            element:<AllSeler></AllSeler>
-        },
-        {
-            path:'/dashboard/allbuyer',
-            element:<AllBuyer></AllBuyer>
-        },
-        {
-            path:'/dashboard/myorders',
-            element:<MyOrders></MyOrders>
-        },
-        {
-            path:'/dashboard/alluser',
-            element:<AdminRoute><AllUser></AllUser></AdminRoute>
-        },
-        {
-            path:'/dashboard/myproducts',
-            element:<SellerRoute><MyProducts></MyProducts></SellerRoute>
-        },
-        {
-            path:'/dashboard/reportuser',
-            element:<AdminRoute><ReportedItem></ReportedItem></AdminRoute>
-        },
-       
-        
-        {
-            path:'/dashboard/payment/:id',
-            element:<Payment></Payment>,
-            loader:({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`),
-            
-
-        }
-    ]
-
-   }
-  
-
-
-])
+      {
+        path: "/dashboard/payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(
+            `https://re-roll-abike-server.vercel.app/bookings/${params.id}`
+          ),
+      },
+    ],
+  },
+]);
 export default router;

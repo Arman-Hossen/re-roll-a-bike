@@ -2,24 +2,26 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <section className="bg-white ">
-            <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-4 lg:px-6">
-                <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-                    <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 ">
-                        Blog
-                    </h2>
-                    <p className="font-normal text-gray-500 sm:text-xl dark:text-gray-700">
-                        Basic Question about Frontend and Server
-                    </p>
-                </div>
-                <div className="grid gap-6 lg:grid-cols-2">
-                    <article className="p-6 rounded-lg border shadow-md bg-gray-800">
-                        <h2 className="mb-2 text-2xl font-bold tracking-tight text-white">
-                            What are the different ways to manage a state in a
+    <div>
+             
+         <section >
+         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+             <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
+                 <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold  ">
+                     Blog
+                 </h2>
+                 <p className="font-normal">
+                     Basic Question about Frontend amd Server
+                 </p>
+             </div>
+             <div className="grid gap-6 lg:grid-cols-2">
+                 <article className="p-6 rounded-lg border shadow-md ">
+                     <h2 className="mb-2 text-2xl font-bold tracking-tight ">
+                     What are the different ways to manage a state in a
                             React application?
-                        </h2>
-                        <p className="mb-5 font-normal text-gray-300">
-                            <span className="font-bold text-base">
+                     </h2>
+                     <p className="mb-5 font-normal ">
+                     <span className="font-bold text-base">
                                 The Four Kinds of React State to Manage
                             </span>
                             <br />
@@ -64,14 +66,14 @@ const Blog = () => {
                                 parts of our application rely upon accessing URL
                                 state.
                             </span>
-                        </p>
-                    </article>
-                    <article className="p-6 rounded-lg border shadow-md bg-gray-800">
-                        <h2 className="mb-2 text-2xl font-bold tracking-tight text-white">
-                            How does prototypical inheritance work?
-                        </h2>
-                        <p className="mb-5 font-semibold text-gray-300">
-                            Every object with its methods and properties
+                     </p>
+                 </article>
+                 <article className="p-6 rounded-lg border shadow-md ">
+                     <h2 className="mb-2 text-2xl font-bold tracking-tight ">
+                     How does prototypical inheritance work?
+                     </h2>
+                     <p className="mb-5 font-normal ">
+                     Every object with its methods and properties
                             contains an internal and hidden property known as
                             [[Prototype]]. <br /> The Prototypal Inheritance is
                             a feature in javascript used to add methods and
@@ -82,14 +84,14 @@ const Blog = () => {
                             Object.getPrototypeOf and Object. <br />{" "}
                             setPrototypeOf. Nowadays, in modern language, it is
                             being set using _proto_.
-                        </p>
-                    </article>
-                    <article className="p-6 rounded-lg border shadow-md bg-gray-800">
-                        <h2 className="mb-2 text-2xl font-bold tracking-tight text-white">
-                            What is a unit test? Why should we write unit tests?
-                        </h2>
-                        <p className="mb-5 font-semibold text-gray-300">
-                            A unit test is a way of testing a unit - the
+                     </p>
+                 </article>
+                 <article className="p-6 rounded-lg border shadow-md ">
+                     <h2 className="mb-2 text-2xl font-bold tracking-tight ">
+                     What is a unit test? Why should we write unit tests?
+                     </h2>
+                     <p className="mb-5 font-normal ">
+                     A unit test is a way of testing a unit - the
                             smallest piece of code that can be logically
                             isolated in a system. In most programming languages,
                             that is a function, a subroutine, a method or
@@ -101,14 +103,14 @@ const Blog = () => {
                             having a hard time writing unit tests for a piece of
                             code, it might be a sign that your function is too
                             complex.
-                        </p>
-                    </article>
-                    <article className="p-6 rounded-lg border shadow-md bg-gray-800">
-                        <h2 className="mb-2 text-2xl font-bold tracking-tight text-white">
-                            React vs. Angular vs. Vue?
-                        </h2>
-                        <p className="mb-5 font-normal text-gray-300">
-                            Angular: Angular has a steep learning curve,
+                     </p>
+                 </article>
+                 <article className="p-6 rounded-lg border shadow-md ">
+                     <h2 className="mb-2 text-2xl font-bold tracking-tight ">
+                     React vs. Angular vs. Vue?
+                     </h2>
+                     <p className="mb-5 font-normal ">
+                     Angular: Angular has a steep learning curve,
                             considering it is a complete solution, and mastering
                             Angular requires you to learn associated concepts
                             like TypeScript and MVC. Even though it takes time
@@ -131,11 +133,12 @@ const Blog = () => {
                             respect to their functionality like the use of
                             components. Hence, the transition to Vue from either
                             of the two is an easy option. 
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
+                     </p>
+                 </article>
+             </div>
+         </div>
+     </section>
+    </div>
     );
 };
 
