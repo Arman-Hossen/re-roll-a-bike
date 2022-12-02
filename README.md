@@ -14,7 +14,16 @@ Hosted in Firebase -> [ReGame](https://re-roll-a-bike.web.app/)
 - Buyer can Add products<br/>
 - Site is responsive for large, Mid and mobile device <br/>
 
-Freamwork and library:- Here I use Tailwind Css, daisyUI, Firebase, react icon, React Router Dom, react hot toast, react query, axios.
+## Freamwork and library:
+- Tailwind
+- daisy ui
+- react hot toast
+- react
+- react query
+- axios
+- react icons font awesome
+- react router dom
+- firebase authentication
 
 ## admin
 adminEmail: arman77@gmail.com <br/>
