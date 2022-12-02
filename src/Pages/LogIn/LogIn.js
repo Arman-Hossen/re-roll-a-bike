@@ -135,10 +135,10 @@ const LogIn = () => {
             Create an Account
           </Link>
         </p>
-        <div className="divider">OR</div>
+        {/* <div className="divider">OR</div>
         <button onClick={handleGoogle} className="btn btn-outline w-full">
           CONTINUE WITH GOOGLE
-        </button>
+        </button> */}
       </div>
     </div>
   );
